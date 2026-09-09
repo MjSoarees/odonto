@@ -98,10 +98,48 @@ with tab4:
 
     st.info("💡 Insira as fotos em um documento Word e em seguida faça o upload abaixo.")
     imagens_exames = st.file_uploader("Faça upload do arquivo (Máx. 10 MB)", type=["docx", "doc", "png", "jpg", "jpeg"], accept_multiple_files=True)
+    
+    # --- SEÇÃO DE 5 FOTOS DE EXEMPLO (RESPONSIVO) ---
+    st.markdown("---")
+    st.markdown("### 📸 Exemplos de como tirar as fotos:")
+    st.markdown("Veja abaixo o padrão ideal para o envio das imagens clínicas:")
+
+    # Cria 5 colunas (no PC ficam lado a lado, no celular empilham automaticamente)
+    c1, c2, c3, c4, c5 = st.columns(5)
+    
+    with c1:
+        if os.path.exists("./fotos/foto1.jpeg"):
+            st.image("./fotos/foto1.jpeg", caption="Exemplo 1", width=150)
+        else:
+            st.info("foto1.jpeg ausente")
+
+    with c2:
+        if os.path.exists("./fotos/foto2.jpeg"):
+            st.image("./fotos/foto2.jpeg", caption="Exemplo 2", width=150)
+        else:
+            st.info("foto2.jpeg ausente")
+
+    with c3:
+        if os.path.exists("./fotos/foto3.jpeg"):
+            st.image("./fotos/foto3.jpeg", caption="Exemplo 3", width=150)
+        else:
+            st.info("foto3.jpeg ausente")
+
+    with c4:
+        if os.path.exists("./fotos/foto4.jpeg"):
+            st.image("./fotos/foto4.jpeg", caption="Exemplo 4", width=150)
+        else:
+            st.info("foto4.jpeg ausente")
+
+    with c5:
+        if os.path.exists("./fotos/foto 5.jpeg"):
+            st.image("./fotos/foto 5.jpeg", caption="Exemplo 5", width=150)
+        else:
+            st.info("foto5.jpeg ausente")
+    # -----------------------------------------------
 
     st.markdown("---")
     if st.button("📄 Gerar Documento Word (.docx)", type="primary"):
-        # Validações básicas
         if not prof_nome.strip() or not pac_nome.strip() or not caso_duvida.strip() or not prof_cpf.strip() or not pac_cpf.strip():
             st.error("❌ Erro: Preencha todos os campos obrigatórios marcados com (*), incluindo os CPFs.")
         elif prof_cpf and not validar_cpf(prof_cpf):
@@ -153,7 +191,7 @@ with tab4:
                         ("Nome do paciente", pac_nome), ("Idade", pac_idade), ("Menor de idade", pac_menor),
                         ("E-mail do paciente", pac_email), ("WhatsApp do paciente", pac_whatsapp),
                         ("CPF do paciente", pac_cpf), ("Peso", pac_peso), ("Altura", pac_altura),
-                        ("Sexo", sexo_final), ("Cidade", pac_idade), ("Território / Localidade", pac_territorio)
+                        ("Sexo", sexo_final), ("Cidade", pac_cidade), ("Território / Localidade", pac_territorio)
                     ]),
                     ("CASO CLÍNICO E SOLICITAÇÃO", [
                         ("Descrição do caso clínico", caso_desc), ("Dúvida clínica", caso_duvida),
@@ -190,7 +228,6 @@ with tab4:
                         r_d.font.color.rgb = RGBColor(23, 56, 50)
                         p_desc.paragraph_format.space_after = Pt(14)
                         try:
-                            # Se for imagem tenta adicionar diretamente, se for docx avisa
                             if img_file.name.lower().endswith(('png', 'jpg', 'jpeg')):
                                 doc.add_picture(img_file, width=Inches(5.5))
                             else:
