@@ -5,7 +5,7 @@ from docx import Document
 from docx.shared import Inches, Pt, RGBColor
 
 st.set_page_config(
-    page_title="Telessaúde UEA - Triagem Odontológica",
+    page_title="Telessaúde UEA - Teleatendimento Odontológico Especializado",
     page_icon="🦷",
     layout="wide"
 )
