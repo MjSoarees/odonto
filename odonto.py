@@ -28,7 +28,7 @@ def validar_cpf(cpf):
         return False
     return True
 
-st.title("🦷 Telessaúde UEA · Teleatendimento Odontológico")
+st.title("🦷 Telessaúde UEA · Teleatendimento Odontológico Especializado")
 st.markdown("Preencha os dados abaixo para gerar a solicitação oficial de teleatendimento odontológico.")
 
 # Abas organizadas
