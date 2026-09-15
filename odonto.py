@@ -258,7 +258,7 @@ with tab4:
                     section.left_margin = Inches(1)
                     section.right_margin = Inches(1)
 
-                logos_para_word = ["./fotos/logo1.png", "./fotos/logo2.png", "./fotos/logo3.png", "logo1.png", "logo2.png", "logo3.png"]
+                logos_para_word = ["./fotos/logo3.png", "./fotos/logo2.png", "./fotos/logo1.png", "logo3.png", "logo2.png", "logo1.png"]
                 logo_principal = "./fotos/logo1.png" if os.path.exists("./fotos/logo1.png") else "logo1.png"
                 
                 # Aplica o cabeçalho e a marca d'água robusta de fundo
