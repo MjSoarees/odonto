@@ -105,18 +105,12 @@ def adicionar_cabecalho_e_marca_dagua(doc, logo_marca_dagua, logos_topo):
             pass
 
 # Carrega as logos da pasta "fotos" em base64 para a interface web
-img1_b64 = img_to_base64("./fotos/logo3.png") or img_to_base64("logo3.png")
-img2_b64 = img_to_base64("./fotos/logo2.png") or img_to_base64("logo2.png")
-img3_b64 = img_to_base64("./fotos/logo1.png") or img_to_base64("logo1.png")
+img1_b64 = img_to_base64("./fotos/fotos/Design sem nome (11).png") or img_to_base64("logo3.png")
 
 # --- EXIBIÇÃO DAS 3 LOGOS CENTRALIZADAS E SEMPRE LADO A LADO (PC E MOBILE) ---
 logos_html = '<div style="display: flex; justify-content: center; align-items: center; gap: 15px; margin-bottom: 15px;">'
 if img1_b64:
     logos_html += f'<img src="data:image/png;base64,{img1_b64}" style="height: 50px; width: auto;" />'
-if img2_b64:
-    logos_html += f'<img src="data:image/png;base64,{img2_b64}" style="height: 50px; width: auto;" />'
-if img3_b64:
-    logos_html += f'<img src="data:image/png;base64,{img3_b64}" style="height: 50px; width: auto;" />'
 logos_html += '</div>'
 
 st.markdown(logos_html, unsafe_allow_html=True)
